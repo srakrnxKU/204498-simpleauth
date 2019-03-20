@@ -5,7 +5,10 @@ from django.shortcuts import redirect
 
 
 def index(request):
-    return render(request, "login/login.html")
+    if request.user.is_authenticated:
+        return HttpResponse("Welcome, {}! [<a href='logout'>Logout</a>]".format(request.user))
+    else:
+        return render(request, "login/login.html")
 
 
 def login_page(request):
@@ -14,9 +17,7 @@ def login_page(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponse("Yay")
-    else:
-        return redirect("index")
+    return redirect("index")
 
 
 def logout_page(request):
