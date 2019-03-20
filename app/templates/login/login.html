@@ -6,11 +6,6 @@
             Username: <input name="username"></input>
             Password: <input name="password" type="password"></input>
             <button type="submit">Login</button>
-            {% if request.user.is_authenticated %}
-                Currently logged in: {{ request.user }}
-            {% else %}
-                Not logged in
-            {% endif %}
         </form>
     </body>
 </html>
