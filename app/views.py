@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
+from . import random_quotes
 
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, "login/home.html")
+        quote = random_quotes.random_quote()
+        print(quote)
+        return render(request, "login/home.html", quote)
     else:
         return render(request, "login/login.html")
 

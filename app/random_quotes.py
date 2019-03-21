@@ -1,7 +1,8 @@
+import os
 import json
 from random import randint
 
-with open("quotes.json") as f:
+with open(os.path.dirname(os.path.realpath(__file__)) + "/quotes.json") as f:
     quotes = json.load(f)
 
 
