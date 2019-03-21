@@ -1,8 +1,7 @@
-<html>
-    <body>
-        <h1>Homepage</h1>
-        Welcome, {{request.user}}!
-        <hr/>
-        <a href="{%url 'app.logout_page'%}">Logout</a>
-    </body>
-</html>
+{% extends 'bootstrap.html' %}
+{% block contents %}
+    <h1>Welcome back!</h1>
+    You are authenticated as <code>{{request.user}}</code>.
+    <hr/>
+    Not you? <a class="btn btn-sm btn-outline-danger" href="{%url 'app.logout_page'%}">Logout</a>
+{% endblock %}
