@@ -3,7 +3,7 @@
 
 {% block contents %}
     <h1>Register</h1>
-    <form method="POST" action="login/">
+    <form method="POST">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary">Register</button>
