@@ -1,7 +1,7 @@
 {% extends 'bootstrap.html' %}
 {% block contents %}
     <h1>Sign in</h1>
-    <form method="POST" action="login/">
+    <form method="POST" action="{% url 'app.login_page' %}">
         {% csrf_token %}
         <div class="form-group">
             <label>Username</label>
