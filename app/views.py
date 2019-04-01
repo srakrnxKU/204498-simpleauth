@@ -1,9 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django import forms
 from . import random_quotes
+
+
+class RegisterForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+    confirmation = forms.CharField(widget=forms.PasswordInput)
 
 
 def index(request):
