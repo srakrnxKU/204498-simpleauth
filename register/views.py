@@ -10,6 +10,8 @@ def register(request):
         if f.is_valid():
             f.save()
             return redirect('app.index')
+        else:
+            return render(request, "register/register.html", {"form": f})
     else:
         f = UserCreationForm()
         return render(request, "register/register.html", {"form": f})

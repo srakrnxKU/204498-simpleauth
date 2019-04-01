@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from . import random_quotes
@@ -21,7 +22,9 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-    return redirect("app.index")
+        else:
+            messages.error(request, 'Login failed, please try again.')
+        return redirect("app.index")
 
 
 def logout_page(request):
