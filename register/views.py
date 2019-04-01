@@ -9,7 +9,10 @@ def register(request):
         f = UserCreationForm(request.POST)
         if f.is_valid():
             f.save()
+            messages.success(request, 'Account created successfully')
             return redirect('app.index')
+        else:
+            return render(request, "register/register.html", {"form": f})
     else:
         f = UserCreationForm()
         return render(request, "register/register.html", {"form": f})
