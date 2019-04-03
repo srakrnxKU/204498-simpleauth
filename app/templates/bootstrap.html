@@ -2,22 +2,25 @@
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Simple Authentication App</title>
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="{% static "bootstrap_dark.css" %}">
-        <style type="text/css">
-        body{
-            margin-top: 30px;
-        }
-        </style>
-    </head>
-    <body>
-    <div class="container">
-        {% block contents %}
-        {% endblock %}
-    </div>
-    </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Simple Authentication App</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="{% static "bootstrap_dark.css" %}">
+<style type="text/css">
+body{
+    margin-top: 100px;
+}
+</style>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Simple Auth</a>
+</nav>
+<div class="container">
+    {% block contents %}
+    {% endblock %}
+</div>
+</body>
 </html>
